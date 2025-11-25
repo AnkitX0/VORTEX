@@ -5,6 +5,7 @@ Agri-Trust is a secure P2P agricultural marketplace that connects farmers direct
 
 🔐 Demo Login (No Database Required)
 
+
 Use these credentials for the demo:
 
 👨‍🌾 Farmer Login
@@ -13,6 +14,7 @@ Email: farmer@gmail.com
 
 Password: 1234
 
+
 🛒 Buyer Login
 
 Email: buyer@gmail.com
@@ -20,6 +22,7 @@ Email: buyer@gmail.com
 Password: 1234
 
 Admin module is disabled for the demo.
+
 
 📌 Table of Contents
 
@@ -42,6 +45,7 @@ Folder Structure
 Roadmap
 
 Team
+
 
 🌱 1. Overview
 
@@ -71,6 +75,7 @@ Real-time mandi price radar
 
 Multi-language, low-tech interface
 
+
 ⚙️ 2. Features by User Role
 👨‍🌾 Farmer Features
 
@@ -86,6 +91,7 @@ Live mandi prices
 
 Notifications
 
+
 🛒 Buyer Features
 
 Browse farmer listings
@@ -98,6 +104,7 @@ Track delivery
 
 Download receipt
 
+
 🛡️ Admin Features (Backend Only)
 
 Resolve disputes
@@ -107,6 +114,7 @@ Verify proof of delivery
 Manage users & listings
 
 Fraud monitoring
+
 
 🧩 3. Architecture Diagram
 flowchart LR
@@ -130,6 +138,7 @@ flowchart LR
 
 
 If GitHub doesn’t render Mermaid, it still shows clean as code.
+
 
 🔄 4. System Flow
 Farmer Flow
@@ -166,6 +175,7 @@ Verify proofs
 
 Approve/Reject cases
 
+
 🧱 5. Technology Stack
 Frontend
 
@@ -197,6 +207,7 @@ Agmarknet / e-NAM
 
 Cloud Storage (S3/Cloudinary)
 
+
 🔐 6. How Login Works (Demo Version)
 
 Login is hardcoded in script.js:
@@ -213,6 +224,7 @@ No hashing
 No API calls
 
 Purely for presentation/demo.
+
 
 🗄️ 7. How It Will Work With SQL (Production)
 Authentication
@@ -250,14 +262,67 @@ Photo → Cloud Storage
 
 GPS + timestamp → SQL
 
+
 📁 8. Folder Structure
-/agri-trust-demo
-│── index.html
-│── farmer.html
-│── buyer.html
-│── style.css
-│── script.js
-└── assets/
+agri-trust/
+│
+├── index.html                 # Main Login Page
+│
+├── signup.html                # Signup Page
+│
+├── style.css                  # Global Styles
+│
+├── script.js                  # Login Logic (Hardcoded Demo)
+│
+├── app.assistant.js           # Helper / Global Logic
+│
+├── components/                # Shared UI components (future)
+│
+├── farmer/                    # Farmer Module
+│   │
+│   ├── index.html             # Farmer Dashboard (Home)
+│   │
+│   ├── listings.html          # Manage Listings
+│   │
+│   ├── orders.html            # Farmer Orders
+│   │
+│   ├── mandi.html             # Mandi Prices
+│   │
+│   ├── notifications.html     # Farmer Notifications
+│   │
+│   ├── help.html              # Help Page
+│   │
+│   ├── style.css              # Farmer Stylesheet
+│   │
+│   └── app.js                 # Farmer JS Logic
+│
+├── buyer/                     # Buyer Module
+│   │
+│   ├── index.html             # Buyer Dashboard (Home)
+│   │
+│   ├── dashboard.html         # Buyer Main Dashboard
+│   │
+│   ├── listings.html          # Browse Listings
+│   │
+│   ├── orders.html            # Buyer Orders
+│   │
+│   ├── wallet.html            # Buyer Wallet
+│   │
+│   ├── notifications.html     # Buyer Notifications
+│   │
+│   ├── help.html              # Help Page
+│   │
+│   ├── style.css              # Buyer Stylesheet
+│   │
+│   └── app.js                 # Buyer JS Logic
+│
+├── admin/                     # Admin Module (Future)
+│   │
+│   └── index.html             # Admin Dashboard Placeholder
+│
+└── assets/                    # Images, icons, logos, etc.
+
+
 
 🚀 9. Roadmap
 Phase	Feature
@@ -268,6 +333,8 @@ Phase	Feature
 5	Mandi Price Aggregation
 6	Offline Mode + Multi-language
 7	ML Price Prediction
+
+
 👥 10. Team VORTEX
 
 Ankit Singh — Frontend & AI/ML
