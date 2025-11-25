@@ -173,8 +173,6 @@
       if (DEBUG) console.log('[login] admin attempt:', email);
       if (email === 'admin@gmail.com' && pass === '1234') {
         tryRedirect([
-          'admin/admin/adminDashboard.html',
-          'admin/adminDashboard.html',
           'admin/index.html'
         ]);
       } else {
@@ -185,3 +183,4 @@
     if (DEBUG) console.log('[login] ready — test credentials and watch console for fetch/redirect logs.');
   });
 })();
+
