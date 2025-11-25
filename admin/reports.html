@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Trust - Reports</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body class="h-screen flex overflow-hidden text-gray-800">
+    <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col flex-shrink-0">
+        <div class="h-16 flex items-center px-6 border-b border-slate-800 bg-slate-900">
+            <div class="flex items-center gap-2 text-emerald-500 font-bold text-xl tracking-tight">
+                <i class="fa-solid fa-wheat-awn"></i>
+                <span>Agri-Trust</span>
+            </div>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto hovered-element" id="sidebarNav">
+            <a href="index.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-gauge-high w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Dashboard</span>
+            </a>
+            <a href="users.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-users w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Users</span>
+            </a>
+            <a href="listings.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-list w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Listings</span>
+            </a>
+            <a href="orders.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-box-open w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Orders</span>
+                <span class="ml-auto bg-slate-800 text-emerald-400 py-0.5 px-2 rounded-full text-xs">12</span>
+            </a>
+            <a href="disputes.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-gavel w-5 text-center group-hover:text-red-400"></i>
+                <span class="font-medium">Disputes</span>
+                <span class="ml-auto bg-red-900/30 text-red-400 py-0.5 px-2 rounded-full text-xs">3</span>
+            </a>
+            <a href="reports.html" class="nav-link flex items-center gap-3 px-3 py-2.5 bg-emerald-600 text-white rounded-md transition-colors">
+                <i class="fa-solid fa-chart-pie w-5 text-center"></i>
+                <span class="font-medium">Reports</span>
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-800">
+            <div class="flex items-center gap-3">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=10b981&color=fff" alt="Admin" class="w-9 h-9 rounded-full">
+                <div class="flex flex-col">
+                    <span class="text-sm font-semibold text-white">Admin User</span>
+                    <span class="text-xs text-slate-500">Super Admin</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 lg:px-8">
+            <div class="flex items-center gap-4 text-gray-500">
+                <button class="hover:text-gray-700"><i class="fa-solid fa-bars"></i></button>
+                <span class="text-sm text-gray-400" id="breadcrumb">/ Reports</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative">
+                    <select class="appearance-none bg-white border border-gray-300 rounded-md pl-3 pr-8 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last Quarter</option>
+                        <option>Year to Date</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                </div>
+                <button class="relative text-gray-500 hover:text-gray-700">
+                    <i class="fa-regular fa-bell text-lg"></i>
+                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+            </div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 lg:p-8 custom-scrollbar">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6">Analytics & Reports</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+                    <h2 class="font-semibold text-gray-800 text-sm mb-4">Transaction Volume (30d)</h2>
+                    <div class="relative h-64 w-full">
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+                    <h2 class="font-semibold text-gray-800 text-sm mb-4">Commodity Distribution</h2>
+                    <div class="relative h-64 w-full">
+                        <canvas id="commodityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="font-semibold text-gray-800">Monthly Summary</h2>
+                    <button onclick="exportData()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                        <i class="fa-solid fa-download mr-2"></i>Export
+                    </button>
+</div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm text-gray-600">
+                        <thead class="bg-gray-50 text-xs uppercase font-semibold text-gray-500">
+                            <tr>
+                                <th class="px-6 py-3">Month</th>
+                                <th class="px-6 py-3">Transactions</th>
+                                <th class="px-6 py-3">Volume (tons)</th>
+                                <th class="px-6 py-3">Value (₹)</th>
+                                <th class="px-6 py-3">Disputes</th>
+                                <th class="px-6 py-3 text-right">% Resolved</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <td class="px-6 py-3 font-medium text-gray-800">June 2023</td>
+                                <td class="px-6 py-3">342</td>
+                                <td class="px-6 py-3">1,242</td>
+                                <td class="px-6 py-3">₹ 4.2 Cr</td>
+                                <td class="px-6 py-3">7</td>
+                                <td class="px-6 py-3 text-right text-emerald-600 font-medium">85.7%</td>
+                            </tr>
+                            <!-- More monthly data rows would go here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Volume Chart
+        const volumeCtx = document.getElementById('volumeChart')?.getContext('2d');
+        if (volumeCtx) {
+            new Chart(volumeCtx, {
+                type: 'bar',
+                data: {
+                    labels: Array.from({length: 30}, (_, i) => i + 1),
+                    datasets: [{
+                        label: 'Transactions',
+                        data: Array.from({length: 30}, () => Math.floor(Math.random() * 100) + 20),
+                        backgroundColor: '#10b981',
+                        borderColor: '#10b981',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#9ca3af' } },
+                        y: { grid: { color: '#e5e7eb' }, ticks: { font: { size: 10 }, color: '#9ca3af' } }
+                    }
+                }
+            });
+        }
+
+        // Commodity Chart
+        const commodityCtx = document.getElementById('commodityChart')?.getContext('2d');
+        if (commodityCtx) {
+            new Chart(commodityCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Wheat', 'Rice', 'Soybean', 'Cotton', 'Mustard', 'Others'],
+                    datasets: [{
+                        data: [35, 25, 15, 12, 8, 5],
+                        backgroundColor: [
+                            '#10b981',
+                            '#3b82f6',
+                            '#f59e0b',
+                            '#8b5cf6',
+                            '#ec4899',
+                            '#64748b'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'right' } },
+                    cutout: '70%'
+                }
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Trust - Disputes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="h-screen flex overflow-hidden text-gray-800">
+    <aside class="w-64 bg-slate-900 text-slate-300 flex flex-col flex-shrink-0">
+        <div class="h-16 flex items-center px-6 border-b border-slate-800 bg-slate-900">
+            <div class="flex items-center gap-2 text-emerald-500 font-bold text-xl tracking-tight">
+                <i class="fa-solid fa-wheat-awn"></i>
+                <span>Agri-Trust</span>
+            </div>
+        </div>
+        <nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto hovered-element" id="sidebarNav">
+            <a href="index.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-gauge-high w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Dashboard</span>
+            </a>
+            <a href="users.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-users w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Users</span>
+            </a>
+            <a href="listings.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-list w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Listings</span>
+            </a>
+            <a href="orders.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-box-open w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Orders</span>
+                <span class="ml-auto bg-slate-800 text-emerald-400 py-0.5 px-2 rounded-full text-xs">12</span>
+            </a>
+            <a href="disputes.html" class="nav-link flex items-center gap-3 px-3 py-2.5 bg-emerald-600 text-white rounded-md transition-colors">
+                <i class="fa-solid fa-gavel w-5 text-center"></i>
+                <span class="font-medium">Disputes</span>
+                <span class="ml-auto bg-red-900/30 text-red-400 py-0.5 px-2 rounded-full text-xs">3</span>
+            </a>
+            <a href="reports.html" class="nav-link flex items-center gap-3 px-3 py-2.5 hover:bg-slate-800 hover:text-white rounded-md transition-colors group">
+                <i class="fa-solid fa-chart-pie w-5 text-center group-hover:text-emerald-400"></i>
+                <span class="font-medium">Reports</span>
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-800">
+            <div class="flex items-center gap-3">
+                <img src="https://ui-avatars.com/api/?name=Admin+User&background=10b981&color=fff" alt="Admin" class="w-9 h-9 rounded-full">
+                <div class="flex flex-col">
+                    <span class="text-sm font-semibold text-white">Admin User</span>
+                    <span class="text-xs text-slate-500">Super Admin</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="flex-1 flex flex-col overflow-hidden">
+        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 lg:px-8">
+            <div class="flex items-center gap-4 text-gray-500">
+                <button class="hover:text-gray-700"><i class="fa-solid fa-bars"></i></button>
+                <span class="text-sm text-gray-400" id="breadcrumb">/ Disputes</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <div class="relative hidden md:block">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                    <input type="text" placeholder="Search disputes..." class="pl-9 pr-4 py-1.5 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 w-64">
+                </div>
+                <button class="relative text-gray-500 hover:text-gray-700">
+                    <i class="fa-regular fa-bell text-lg"></i>
+                    <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+                </button>
+            </div>
+        </header>
+        <div class="flex-1 overflow-y-auto p-6 lg:p-8 custom-scrollbar">
+            <h1 class="text-2xl font-bold text-gray-800 mb-6">Open Disputes</h1>
+            <div class="grid grid-cols-1 gap-6">
+                <!-- Dispute Card -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="font-bold text-gray-800">Quality Dispute: Wheat Delivery</h3>
+                            <p class="text-sm text-gray-500">Order #ORD-9819 • 2 days ago</p>
+                        </div>
+                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Urgent</span>
+                    </div>
+                    <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <span class="text-xs text-gray-500">Complainant</span>
+                            <p class="font-medium">Ramesh Traders</p>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-500">Defendant</span>
+                            <p class="font-medium">Sunil Farms</p>
+                        </div>
+                        <div>
+                            <span class="text-xs text-gray-500">Escrow Amount</span>
+                            <p class="font-medium">₹ 2,10,000</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex justify-between items-center">
+                        <button onclick="resolveDispute()" class="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-md text-sm font-medium">
+                            <i class="fa-solid fa-gavel mr-2"></i>Resolve Dispute
+                        </button>
+<div class="text-sm text-gray-500">
+                            <i class="fa-regular fa-clock mr-1"></i> 2 days remaining
+                        </div>
+                    </div>
+                </div>
+                <!-- More dispute cards would go here -->
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
