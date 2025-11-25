@@ -150,13 +150,42 @@ Photo → Cloud Storage
 GPS + timestamp → SQL
 
 📁 8. Folder Structure
-/agri-trust-demo
-│── index.html
-│── farmer.html
-│── buyer.html
-│── style.css
-│── script.js
-└── assets/
+VORTEX/
+│
+├── index.html                # Main Login Page
+├── signup.html               # Signup Page
+├── style.css                 # Global Styles
+├── script.js                 # Login Logic (Hardcoded Demo)
+├── app.assistant.js          # Helper / Global Logic
+│
+├── components/               # Shared UI components (future use)
+│
+├── farmer/                   # Farmer Module
+│   ├── index.html            # Farmer Dashboard (home)
+│   ├── listings.html         # Create/View Listings
+│   ├── orders.html           # Farmer Orders
+│   ├── mandi.html            # Mandi Prices Page
+│   ├── notifications.html    # Farmer Notifications
+│   ├── help.html             # Help & Support
+│   ├── style.css             # Farmer-only styles
+│   └── app.js                # Farmer module JS
+│
+├── buyer/                    # Buyer Module
+│   ├── index.html            # Buyer Dashboard (home)
+│   ├── dashboard.html        # Buyer Home Dashboard
+│   ├── listings.html         # Browse Listings
+│   ├── orders.html           # Buyer Orders
+│   ├── wallet.html           # Buyer Wallet (future)
+│   ├── notifications.html    # Buyer Notifications
+│   ├── help.html             # Help & Support
+│   ├── style.css             # Buyer-only styles
+│   └── app.js                # Buyer module JS
+│
+├── admin/                    # Admin Module (future)
+│   └── index.html            # Placeholder for admin dashboard
+│
+└── assets/                   # Images, icons, logos, etc.
+
 
 🚀 9. Roadmap
 Phase	Feature
