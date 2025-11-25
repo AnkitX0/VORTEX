@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTrust Farmer Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="/mnt/data/93da599d-bdd5-4c75-81ac-173f2ad9b85f.png" alt="AgriTrust Logo" class="logo">
+            <span class="brand-name">AgriTrust</span>
+            <button class="close-sidebar-btn mobile-only" aria-label="Close Sidebar">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item active" data-page="dashboard">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="listings.html" class="nav-item" data-page="listings">
+                <span class="icon">📦</span> My Listings
+            </a>
+            <a href="orders.html" class="nav-item" data-page="orders">
+                <span class="icon">📝</span> Orders
+            </a>
+            <a href="mandi.html" class="nav-item" data-page="mandi">
+                <span class="icon">📈</span> Mandi Prices
+            </a>
+            <a href="notifications.html" class="nav-item" data-page="notifications">
+                <span class="icon">🔔</span> Notifications
+            </a>
+</nav>
+
+        <div class="user-card">
+            <div class="avatar">AS</div>
+            <div class="user-info">
+                <div class="name">Ankit Singh</div>
+                <div class="role">Farmer • Verified</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="left-head">
+                <button class="hamburger" aria-label="Toggle Sidebar">☰</button>
+                <div class="breadcrumbs">Dashboard / Overview</div>
+            </div>
+            <div class="right-head">
+                <div class="search-box">
+                    <input type="text" placeholder="Search orders, crops...">
+                </div>
+                <button class="icon-btn notif-btn" aria-label="Notifications">
+                    🔔<span class="badge" id="notif-badge">0</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <h3>Wallet Balance</h3>
+                    <div class="value" id="kpi-balance">₹0</div>
+                    <div class="sub">Available</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Active Orders</h3>
+                    <div class="value" id="kpi-active">0</div>
+                    <div class="sub">In Progress</div>
+                </div>
+                <div class="kpi-card warning">
+                    <h3>Escrow Locked</h3>
+                    <div class="value" id="kpi-escrow">₹0</div>
+                    <div class="sub">Pending Delivery</div>
+                </div>
+            </div>
+
+            <div class="content-split">
+                
+                <div class="primary-col">
+                    
+                    <section class="panel">
+                        <div class="panel-head">
+                            <h2>My Listings</h2>
+                            <button class="btn-primary" id="btn-new-listing">+ New Listing</button>
+                        </div>
+                        <div class="listings-grid" id="listings-container">
+                        </div>
+                    </section>
+
+                    <!-- Food Details panel (API-driven) - placed correctly under My Listings -->
+                    <section class="panel" id="food-panel">
+                      <div class="panel-head">
+                        <h2>Food Details (API)</h2>
+                        <div>
+                          <button id="btn-refresh-food" class="btn-text">Refresh</button>
+                          <button id="btn-clear-food-cache" class="btn-text">Clear Cache</button>
+                        </div>
+                      </div>
+
+                      <div class="table-responsive">
+                        <table class="orders-table" id="food-table">
+                          <thead>
+                            <tr>
+                              <th>Commodity</th>
+                              <th>Grade / Type</th>
+                              <th>Min Price (₹/qtl)</th>
+                              <th>Max Price (₹/qtl)</th>
+                              <th>Market</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <!-- populated by JS -->
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <p id="food-api-msg" class="small-text" style="margin-top:8px;color:#666"></p>
+                    </section>
+
+                    <section class="panel">
+                        <div class="panel-head">
+                            <h2>Latest Orders</h2>
+                            <button class="btn-text" id="btn-export-csv">Export CSV ⬇</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Commodity</th>
+                                        <th>Value</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-body">
+                                    </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="secondary-col">
+                    
+                    <section class="panel chart-panel">
+                        <h3>7-Day Volume (Quintals)</h3>
+                        <div class="chart-container">
+                            <svg viewBox="0 0 300 100" class="line-chart">
+                                <polyline fill="none" stroke="#28a745" stroke-width="3" points="0,80 50,60 100,70 150,40 200,50 250,20 300,30" />
+                                <circle cx="0" cy="80" r="3" fill="#28a745"/>
+                                <circle cx="50" cy="60" r="3" fill="#28a745"/>
+                                <circle cx="100" cy="70" r="3" fill="#28a745"/>
+                                <circle cx="150" cy="40" r="3" fill="#28a745"/>
+                                <circle cx="200" cy="50" r="3" fill="#28a745"/>
+                                <circle cx="250" cy="20" r="3" fill="#28a745"/>
+                                <circle cx="300" cy="30" r="3" fill="#28a745"/>
+                            </svg>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <h3>Mandi Price Heatmap</h3>
+                        <p class="small-text">Vadodara Market Live</p>
+                        <div class="heatmap-grid" id="heatmap-grid">
+                        </div>
+                        <div class="legend">
+                            <span>Low</span>
+                            <span class="gradient-bar"></span>
+                            <span>High</span>
+                        </div>
+                    </section>
+
+                    <section class="panel">
+                        <h3>Recent Alerts</h3>
+                        <ul class="notif-list" id="notif-list">
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="assistant-wrapper closed" id="assistant">
+        <div class="assistant-header" id="assistant-toggle">
+            <span>🤖 Agri-Help</span>
+            <span class="toggle-icon">▲</span>
+        </div>
+        <div class="assistant-body">
+            <button class="assist-btn" data-query="list">How to list crops?</button>
+            <button class="assist-btn" data-query="escrow">How escrow works?</button>
+            <button class="assist-btn" data-query="confirm">How to confirm delivery?</button>
+            <button class="assist-btn" data-query="mandi">Show mandi prices</button>
+            <div class="assist-response" id="assist-response"></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-listing">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3>Create New Listing</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="form-listing">
+                <div class="form-group">
+                    <label>Crop Type</label>
+                    <select id="inp-crop" required>
+                        <option value="Wheat">Wheat</option>
+                        <option value="Rice">Rice</option>
+                        <option value="Onion">Onion</option>
+                        <option value="Potato">Potato</option>
+                        <option value="Tomato">Tomato</option>
+                        <option value="Cotton">Cotton</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Quantity (kg)</label>
+                    <input type="number" id="inp-qty" required min="1">
+                </div>
+                <div class="form-group">
+                    <label>Min Price per kg (₹)</label>
+                    <input type="number" id="inp-price" required min="1">
+                </div>
+                <div class="form-group">
+                    <label>Photo (Optional)</label>
+                    <input type="file" id="inp-photo" accept="image/*">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary close-modal">Cancel</button>
+                    <button type="submit" class="btn-primary">List Now</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-proof">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3>Confirm Delivery</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <p>Upload proof of delivery to release escrow funds.</p>
+            <form id="form-proof">
+                <input type="hidden" id="proof-order-id">
+                <div class="form-group">
+                    <label>Capture Photo / Upload</label>
+                    <input type="file" id="inp-proof-file" accept="image/*" capture="environment" required>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="inp-geo" checked> Append Geolocation
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary close-modal">Cancel</button>
+                    <button type="submit" class="btn-primary">Submit & Release</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

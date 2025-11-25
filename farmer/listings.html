@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Listings | AgriTrust</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="/mnt/data/93da599d-bdd5-4c75-81ac-173f2ad9b85f.png" alt="AgriTrust Logo" class="logo">
+            <span class="brand-name">AgriTrust</span>
+            <button class="close-sidebar-btn mobile-only" aria-label="Close Sidebar">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="index.html" class="nav-item" data-page="dashboard">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="listings.html" class="nav-item active" data-page="listings">
+                <span class="icon">📦</span> My Listings
+            </a>
+            <a href="orders.html" class="nav-item" data-page="orders">
+                <span class="icon">📝</span> Orders
+            </a>
+            <a href="mandi.html" class="nav-item" data-page="mandi">
+                <span class="icon">📈</span> Mandi Prices
+            </a>
+            <a href="notifications.html" class="nav-item" data-page="notifications">
+                <span class="icon">🔔</span> Notifications
+            </a>
+</nav>
+
+        <div class="user-card">
+            <div class="avatar">AS</div>
+            <div class="user-info">
+                <div class="name">Ankit Singh</div>
+                <div class="role">Farmer • Verified</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="left-head">
+                <button class="hamburger" aria-label="Toggle Sidebar">☰</button>
+                <div class="breadcrumbs">My Listings</div>
+            </div>
+            <div class="right-head">
+                <div class="search-box">
+                    <input type="text" placeholder="Search listings...">
+                </div>
+                <button class="icon-btn notif-btn" aria-label="Notifications">
+                    🔔<span class="badge" id="notif-badge">0</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <section class="panel">
+                <div class="panel-head">
+                    <h2>My Active Listings</h2>
+                    <button class="btn-primary" id="btn-new-listing">+ New Listing</button>
+                </div>
+                <div class="listings-grid" id="listings-container">
+                    <!-- Listings will be populated by JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
