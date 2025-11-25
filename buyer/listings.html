@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Listings | Agri-Trust</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="/mnt/data/ac14f15a-31a3-4d40-8f28-236c426104d5.png" alt="Agri-Trust Logo" class="logo">
+            <span class="brand-name">Agri-Trust</span>
+            <button class="close-sidebar-btn mobile-only">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav hovered-element">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="listings.html" class="nav-item active">
+                <span class="icon">🛒</span> Browse Listings
+            </a>
+            <a href="orders.html" class="nav-item">
+                <span class="icon">📦</span> My Orders
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <span class="icon">💳</span> Wallet
+            </a>
+<a href="notifications.html" class="nav-item">
+                <span class="icon">🔔</span> Notifications
+            </a>
+            <a href="help.html" class="nav-item">
+                <span class="icon">❓</span> Help
+            </a>
+        </nav>
+
+        <div class="user-card">
+            <div class="avatar">DB</div>
+            <div class="user-info">
+                <div class="name">DemoBuyer</div>
+                <div class="role">Verified Buyer</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="left-head">
+                <button class="hamburger" aria-label="Toggle Sidebar">☰</button>
+                <div class="breadcrumbs">Browse Listings</div>
+            </div>
+            <div class="right-head">
+                <div class="search-box">
+                    <input type="text" placeholder="Search crops, sellers...">
+                </div>
+                <button class="icon-btn notif-btn">🔔<span class="badge">0</span></button>
+            </div>
+        </header>
+
+        <div class="content-scrollable">
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label>Crop Type</label>
+                    <select>
+                        <option>All Crops</option>
+                        <option>Wheat</option>
+                        <option>Rice</option>
+                        <option>Onion</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <select>
+                        <option>Any</option>
+                        <option>Under ₹20/kg</option>
+                        <option>₹20-₹50/kg</option>
+                        <option>Over ₹50/kg</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Location</label>
+                    <select>
+                        <option>Any</option>
+                        <option>North India</option>
+                        <option>South India</option>
+                        <option>East India</option>
+                        <option>West India</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="listings-grid">
+                <div class="listing-card">
+                    <div class="card-img-top">🌾</div>
+                    <div class="card-body">
+                        <div class="listing-title">
+                            <span class="crop-name">Wheat (Lokwan)</span>
+                            <span class="price-tag">₹22/kg</span>
+                        </div>
+                        <div class="meta-row">
+                            <span>📍 Karnal, Haryana</span>
+                            <span class="qty-badge">1200 kg</span>
+                        </div>
+                        <div class="seller-info">Sold by: <strong>Farmer Co-op</strong></div>
+                        <div class="card-actions">
+                            <button class="btn-secondary">View Details</button>
+                            <button class="btn-primary">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- More listing cards would be here -->
+            </div>
+        </div>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

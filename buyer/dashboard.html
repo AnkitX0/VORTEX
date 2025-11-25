@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Agri-Trust</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="/mnt/data/ac14f15a-31a3-4d40-8f28-236c426104d5.png" alt="Agri-Trust Logo" class="logo">
+            <span class="brand-name">Agri-Trust</span>
+            <button class="close-sidebar-btn mobile-only">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav hovered-element">
+            <a href="dashboard.html" class="nav-item active">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="listings.html" class="nav-item">
+                <span class="icon">🛒</span> Browse Listings
+            </a>
+            <a href="orders.html" class="nav-item">
+                <span class="icon">📦</span> My Orders
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <span class="icon">💳</span> Wallet
+            </a>
+<a href="notifications.html" class="nav-item">
+                <span class="icon">🔔</span> Notifications
+            </a>
+            <a href="help.html" class="nav-item">
+                <span class="icon">❓</span> Help
+            </a>
+        </nav>
+
+        <div class="user-card">
+            <div class="avatar">DB</div>
+            <div class="user-info">
+                <div class="name">DemoBuyer</div>
+                <div class="role">Verified Buyer</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="left-head">
+                <button class="hamburger" aria-label="Toggle Sidebar">☰</button>
+                <div class="breadcrumbs">Dashboard</div>
+            </div>
+            <div class="right-head">
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <button class="icon-btn notif-btn">🔔<span class="badge">0</span></button>
+            </div>
+        </header>
+
+        <div class="content-scrollable">
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <h3>Wallet Balance</h3>
+                    <div class="value">₹50,000</div>
+                    <div class="sub">Available Funds</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Active Orders</h3>
+                    <div class="value">3</div>
+                    <div class="sub">In Escrow / Transit</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Saved Listings</h3>
+                    <div class="value">7</div>
+                    <div class="sub">Watchlist</div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h2>Monthly Transactions</h2>
+                <div class="chart-placeholder"></div>
+            </div>
+
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-grid">
+                    <a href="wallet.html" class="action-card">
+                        <span class="icon">💳</span>
+                        <span>Add Funds</span>
+                    </a>
+                    <a href="listings.html" class="action-card">
+                        <span class="icon">🛒</span>
+                        <span>Browse Listings</span>
+                    </a>
+                    <a href="#" class="action-card">
+                        <span class="icon">📧</span>
+                        <span>Contact Support</span>
+                    </a>
+                    <a href="#" class="action-card">
+                        <span class="icon">📝</span>
+                        <span>Request Quote</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

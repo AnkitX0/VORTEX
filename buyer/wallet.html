@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet | Agri-Trust</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="/mnt/data/ac14f15a-31a3-4d40-8f28-236c426104d5.png" alt="Agri-Trust Logo" class="logo">
+            <span class="brand-name">Agri-Trust</span>
+            <button class="close-sidebar-btn mobile-only">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav hovered-element">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="listings.html" class="nav-item">
+                <span class="icon">🛒</span> Browse Listings
+            </a>
+            <a href="orders.html" class="nav-item">
+                <span class="icon">📦</span> My Orders
+            </a>
+            <a href="wallet.html" class="nav-item active">
+                <span class="icon">💳</span> Wallet
+            </a>
+<a href="notifications.html" class="nav-item">
+                <span class="icon">🔔</span> Notifications
+            </a>
+            <a href="help.html" class="nav-item">
+                <span class="icon">❓</span> Help
+            </a>
+        </nav>
+
+        <div class="user-card">
+            <div class="avatar">DB</div>
+            <div class="user-info">
+                <div class="name">DemoBuyer</div>
+                <div class="role">Verified Buyer</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="left-head">
+                <button class="hamburger" aria-label="Toggle Sidebar">☰</button>
+                <div class="breadcrumbs">Wallet</div>
+            </div>
+            <div class="right-head">
+                <div class="search-box">
+                    <input type="text" placeholder="Search transactions...">
+                </div>
+                <button class="icon-btn notif-btn">🔔<span class="badge">0</span></button>
+            </div>
+        </header>
+
+        <div class="content-scrollable">
+            <div class="wallet-summary">
+                <div class="balance-card">
+                    <div class="balance-info">
+                        <h3>Current Balance</h3>
+                        <div class="balance-amount">₹50,000</div>
+                        <div class="balance-desc">Available Funds</div>
+                    </div>
+                    <div class="balance-actions">
+                        <button class="btn-primary" onclick="showAddFundsModal()">Add Funds</button>
+                        <button class="btn-secondary" onclick="showWithdrawModal()">Withdraw</button>
+                    </div>
+</div>
+
+                <div class="escrow-card">
+                    <div class="escrow-info">
+                        <h3>Locked in Escrow</h3>
+                        <div class="escrow-amount">₹12,500</div>
+                        <div class="escrow-desc">For active orders</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transactions-section">
+                <div class="section-header">
+                    <h2>Recent Transactions</h2>
+                    <button class="btn-secondary">View All</button>
+                </div>
+
+                <div class="transactions-list">
+                    <div class="transaction-item credit">
+                        <div class="transaction-icon">➕</div>
+                        <div class="transaction-details">
+                            <div class="transaction-title">Wallet Top-up</div>
+                            <div class="transaction-date">12 May 2023</div>
+                        </div>
+                        <div class="transaction-amount">+ ₹10,000</div>
+                    </div>
+                    
+                    <!-- More transaction items would be here -->
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+    <div class="modal-overlay" id="modal-wallet">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h3 id="wallet-modal-title">Add Funds</h3>
+                <button class="close-modal close-wallet-modal">&times;</button>
+            </div>
+            <form id="form-wallet">
+                <input type="hidden" id="wallet-action-type" name="actionType" value="add">
+                <div class="form-group">
+                    <label>Amount (₹)</label>
+                    <input type="number" name="amount" min="1" step="0.01" required>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary close-wallet-modal">Cancel</button>
+                    <button type="submit" class="btn-primary" id="wallet-submit-btn">Add Funds</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

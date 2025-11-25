@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | Agri-Trust</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="/mnt/data/ac14f15a-31a3-4d40-8f28-236c426104d5.png" alt="Agri-Trust Logo" class="logo">
+            <span class="brand-name">Agri-Trust</span>
+            <button class="close-sidebar-btn mobile-only">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav hovered-element">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="listings.html" class="nav-item">
+                <span class="icon">🛒</span> Browse Listings
+            </a>
+            <a href="orders.html" class="nav-item">
+                <span class="icon">📦</span> My Orders
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <span class="icon">💳</span> Wallet
+            </a>
+<a href="notifications.html" class="nav-item active">
+                <span class="icon">🔔</span> Notifications
+            </a>
+            <a href="help.html" class="nav-item">
+                <span class="icon">❓</span> Help
+            </a>
+        </nav>
+
+        <div class="user-card">
+            <div class="avatar">DB</div>
+            <div class="user-info">
+                <div class="name">DemoBuyer</div>
+                <div class="role">Verified Buyer</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="left-head">
+                <button class="hamburger" aria-label="Toggle Sidebar">☰</button>
+                <div class="breadcrumbs">Notifications</div>
+            </div>
+            <div class="right-head">
+                <div class="search-box">
+                    <input type="text" placeholder="Search notifications...">
+                </div>
+                <button class="icon-btn notif-btn">🔔<span class="badge">0</span></button>
+            </div>
+        </header>
+
+        <div class="content-scrollable">
+            <div class="notifications-header">
+                <h2>Notifications</h2>
+                <div class="notification-actions">
+                    <button class="btn-secondary">Mark All Read</button>
+                    <button class="btn-secondary">Clear All</button>
+                </div>
+            </div>
+
+            <div class="notifications-list">
+                <div class="notification-item unread">
+                    <div class="notification-icon">📦</div>
+                    <div class="notification-content">
+                        <h3>Order Shipped</h3>
+                        <p>Your order ORD-1001 has been shipped by the seller. Expected delivery on 15 May.</p>
+                        <div class="notification-time">10:30 AM • 12 May 2023</div>
+                    </div>
+                    <button class="notification-action">⋮</button>
+                </div>
+                
+                <!-- More notification items would be here -->
+            </div>
+        </div>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

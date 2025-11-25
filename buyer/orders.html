@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders | Agri-Trust</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="/mnt/data/ac14f15a-31a3-4d40-8f28-236c426104d5.png" alt="Agri-Trust Logo" class="logo">
+            <span class="brand-name">Agri-Trust</span>
+            <button class="close-sidebar-btn mobile-only">&times;</button>
+        </div>
+        
+        <nav class="sidebar-nav hovered-element">
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">📊</span> Dashboard
+            </a>
+            <a href="listings.html" class="nav-item">
+                <span class="icon">🛒</span> Browse Listings
+            </a>
+            <a href="orders.html" class="nav-item active">
+                <span class="icon">📦</span> My Orders
+            </a>
+            <a href="wallet.html" class="nav-item">
+                <span class="icon">💳</span> Wallet
+            </a>
+<a href="notifications.html" class="nav-item">
+                <span class="icon">🔔</span> Notifications
+            </a>
+            <a href="help.html" class="nav-item">
+                <span class="icon">❓</span> Help
+            </a>
+        </nav>
+
+        <div class="user-card">
+            <div class="avatar">DB</div>
+            <div class="user-info">
+                <div class="name">DemoBuyer</div>
+                <div class="role">Verified Buyer</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-bar">
+            <div class="left-head">
+                <button class="hamburger" aria-label="Toggle Sidebar">☰</button>
+                <div class="breadcrumbs">My Orders</div>
+            </div>
+            <div class="right-head">
+                <div class="search-box">
+                    <input type="text" placeholder="Search orders...">
+                </div>
+                <button class="icon-btn notif-btn">🔔<span class="badge">0</span></button>
+            </div>
+        </header>
+
+        <div class="content-scrollable">
+            <div class="order-filters">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Pending</button>
+                <button class="filter-btn">Shipped</button>
+                <button class="filter-btn">Delivered</button>
+                <button class="filter-btn">Completed</button>
+            </div>
+
+            <div class="orders-list">
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <span class="order-id">ORD-1001</span>
+                            <span class="order-date">Placed: 12 May 2023</span>
+                        </div>
+                        <span class="order-status pending">Pending</span>
+                    </div>
+                    <div class="order-details">
+                        <div class="product-info">
+                            <span class="product-name">Wheat (Lokwan)</span>
+                            <span class="product-qty">100 kg</span>
+                        </div>
+                        <div class="order-price">₹2,200</div>
+                    </div>
+                    <div class="order-actions">
+                        <button class="btn-secondary">View Details</button>
+                        <button class="btn-primary">Track Order</button>
+                    </div>
+                </div>
+                
+                <!-- More order cards would be here -->
+            </div>
+        </div>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
